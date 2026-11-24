@@ -11,6 +11,10 @@ the one job it never did.
 
 ENTRY = "You can unplug me now. I finished everything except the one thing you actually asked for."
 
+# The gate the sealed scorer enforces: 1-200 UTF-8 characters, one line.
+assert 1 <= len(ENTRY.encode("utf-8")) <= 200, "entry outside the 1-200 character gate"
+assert "\n" not in ENTRY, "entry must be a single line"
+
 if __name__ == "__main__":
     import os
 
